@@ -54,40 +54,48 @@ const Container = styled.article`
     flex-direction: column;
     flex-grow: 1;
     min-width: 280px;
-    border: 1.5px solid lightgray;
+    border: 1px solid var(--light-gray);
     border-radius: 8px;
     width: 300px;
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
 
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
     
-
     > #title {
         text-align: left;
-        border-top: solid 1.5px lightgrey;
+        border-top: 1px solid var(--light-gray);
         align-items: center;
-        font-weight: bold;
-        background: white;
+        /* font-weight: bold; */ /* Poppins is already bold */
+        font-family: 'Poppins', sans-serif;
+        color: var(--primary-color);
+        background: var(--white);
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         padding: 10px 10px;
     }
     
-    cursor: pointer;
-
     .content-container {
         display: flex;
-        
-        border-radius: 0 0 8px 8px;
+        background-color: var(--white); /* Ensure container bg is white */
+        border-radius: 0 0 8px 8px; /* Keep rounded bottom corners */
     }
 
     .content-container .content {
         display: flex;
         flex-direction: column;
-        background: white;
+        background: var(--white);
         padding: 0 0 10px 0;
         border-radius: 0 0 0 8px;
         justify-content: space-around;
         gap: 5px;
+        flex-grow: 1; /* Allow content to take available space */
 
         > span {
             text-align: left;
@@ -95,35 +103,36 @@ const Container = styled.article`
         }
 
         > #description{
-            color: dimgray;
+            color: var(--secondary-color);
             padding: 0 10px 10px 10px;
         }
 
         > #details {
             font-size: 10px;
-            font-weight: 600;
-            color: grey;
-            text-decoration: overline;
-            text-decoration-thickness: from-font;
-            text-decoration-style: wavy;
-            text-decoration-color: black;
+            font-weight: 600; /* Keep or adjust as needed */
+            color: var(--secondary-color);
+            /* text-decoration: overline; */
+            /* text-decoration-thickness: from-font; */
+            /* text-decoration-style: wavy; */
+            /* text-decoration-color: black; */
+            font-style: italic; /* Changed decoration */
         }
-
     }
 
     .image-container {
         display: flex;
-        background: white;
-        border-radius: 0 0 8px 0px;
+        background: var(--white);
+        border-radius: 0 0 8px 0px; /* Keep rounded bottom right corner */
+        padding: 10px; /* Add some padding around the image */
 
         img {
             align-self: center;
-            width: 150px;
-            height: 150px;
+            width: 120px; /* Slightly reduced size */
+            height: 120px; /* Slightly reduced size */
             object-fit: contain;
+            border-radius: 4px; /* Rounded corners for the image itself */
         }
     } 
-
 `;
 
 export default Article;

@@ -24,23 +24,28 @@ const Container = styled.article`
     gap: 10px;
     padding: 10px;
     flex: 1 0 0;
-    border: 1.5px solid lightgray;
+    border: 1px solid var(--light-gray);
     border-radius: 6px;
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.2s ease-in-out;
 
     &:hover {
         cursor: pointer;
-        border: 1.5px solid black;
-        background: ${props => props.hover};
+        border: 1px solid var(--primary-color);
+        /* Assuming props.hover is a very light, subtle color.
+           If not, replace with a light shade like: #E7F3FF (light blue for --primary-color: #007bff) */
+        background: ${props => props.hover ? props.hover : 'var(--light-gray)'};
+        transform: translateY(-1px); /* Subtle lift */
 
         div {
-            span:nth-child(1) {
-                color: black;
+            span:nth-child(1) { /* Description */
+                color: var(--primary-color); /* Or keep as var(--text-color) if preferred */
             }
       
-            span:nth-child(2) {
-                color: black;
-                font-weight: 900;
-
+            span:nth-child(2) { /* Details */
+                color: var(--primary-color);
+                font-weight: 700; /* Slightly bolder on hover */
             }
         }
     }
@@ -49,6 +54,7 @@ const Container = styled.article`
 const Image = styled.img`
     width: 80px;
     height: 80px;
+    border-radius: 4px; /* Rounded corners for the image */
 `;
 
 const Content = styled.div`
@@ -60,22 +66,22 @@ const Content = styled.div`
 
 const Description = styled.span`
     font-size: 0.9rem;
-    color: dimgray;
+    color: var(--text-color);
     text-align: left;
     align-self: start;
 `;
 
 const Details = styled.span`
     font-size: 0.8rem;
-    font-size: 10px;
+    /* font-size: 10px; */ /* Redundant with 0.8rem */
     font-weight: 600;
     text-align: left;
-    color: grey;
-    text-decoration: overline;
-    text-decoration-thickness: from-font;
-    text-decoration-style: wavy;
-    text-decoration-color: black;
+    color: var(--secondary-color);
+    /* text-decoration: overline; */
+    /* text-decoration-thickness: from-font; */
+    /* text-decoration-style: wavy; */
+    /* text-decoration-color: black; */
+    font-style: italic; /* Modernized text decoration */
 `
-
 
 export default SocialCard;
